@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Getting Stared: Serving Web Content</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		
+		
+	</head>
+	<body>
+		<h1>Lista de Usuarios</h1>
+		<table>
+			
+			<th:block th:each="p: ${lstUser}">
+				<tr>
+					<td th:text="${p.id}"></td>
+					<td th:text="${p.name}"></td>
+					<td th:text="${p.email}"></td>
+				</tr>
+			</th:block>
+		</table>
+		
+	</body>
+</html>

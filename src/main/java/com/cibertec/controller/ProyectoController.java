@@ -8,11 +8,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cibertec.model.Subject;
 import com.cibertec.repository.ISubjectRepository;
+import com.cibertec.repository.IUserRepository;
 
 @Controller
 public class ProyectoController {
 	@Autowired
 	private ISubjectRepository repos;
+	
+	@Autowired
+	private IUserRepository reposuser;
+	
 	
 	@GetMapping("/registrar")
 	public String registrerSubject(@RequestParam(name="name",required=false, defaultValue="Subject") String name, Model model) {
@@ -33,6 +38,11 @@ public class ProyectoController {
 	public String listSubject(Model model) {
 		model.addAttribute("lstSubject",repos.findAll());
 		return "listado";
+	}
+	@GetMapping("/listarusers")
+	public String listUser(Model model) {
+		model.addAttribute("lstUser",reposuser.findAll());
+		return "listadouser";
 	}
 
 }
